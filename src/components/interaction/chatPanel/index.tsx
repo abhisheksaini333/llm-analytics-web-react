@@ -8,6 +8,7 @@ import ChatTable from '../../chatTable';
 import { BotIcon, UserIcon } from './icons/chatAvatar';
 import magicBI from '../../../assets/icons/MagicBI.jpg';
 import BarChart from '../../charts/vega';
+import { TableChartToggle } from './chartTableToggle';
 
 const spec = {
     "width": 400,
@@ -137,11 +138,7 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ onQuerySend, queryResponse, loadi
                             {
                                 msg.type === 'table' &&
                                 <>
-                                    <div className='chat-table'>
-                                        <ChatTable data={msg.tableData} />
-                                    </div>
-                                    <br />
-                                    <BarChart data={msg.tableData} />
+                                    <TableChartToggle data={msg.tableData} />
                                 </>
                             }
                         </div>

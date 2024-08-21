@@ -2,7 +2,7 @@ import React from 'react';
 import { VegaLite, VisualizationSpec } from 'react-vega';
 
 interface VegaChartProps {
-    spec: VisualizationSpec;
+    spec: VisualizationSpec | any;
 }
 
 const VegaChart: React.FC<VegaChartProps> = ({ spec }) => {

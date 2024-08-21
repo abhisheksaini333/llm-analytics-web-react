@@ -1,15 +1,10 @@
+
 export function parseTableData(text: string) {
     const lines = text.trim().split('\n');
-
-    // Extract columns
     const columns = lines[0].trim().split(/\s+/);
-
-    // Extract data
     const data = lines.slice(1).map(line => {
-        // Split the line by whitespace, but ignore the first index column
         return line.trim().split(/\s+/).slice(1);
     });
-
     return { columns, data };
 }
 
@@ -40,3 +35,37 @@ export function segregateData(data: DataObject[]): SegregatedData {
 
     return { columns, data: dataCollection };
 }
+
+export function generateVegaSpec(data: string | any[], xField: string | number, yField: string | number, chartType = 'bar') {
+
+    if (!data || !Array.isArray(data) || data.length === 0) {
+        throw new Error('Invalid data');
+    }
+
+    if (!xField || !yField) {
+        throw new Error('xField and yField are required to generate the Vega spec');
+    }
+
+    const spec = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "data": {
+            "values": data
+        },
+        "mark": chartType,
+        "encoding": {
+            "x": {
+                "field": xField,
+                "type": typeof data[0][xField] === 'number' ? 'quantitative' : 'ordinal',
+                "axis": { "title": xField }
+            },
+            "y": {
+                "field": yField,
+                "type": typeof data[0][yField] === 'number' ? 'quantitative' : 'ordinal',
+                "axis": { "title": yField }
+            }
+        }
+    };
+
+    return spec;
+}
+
