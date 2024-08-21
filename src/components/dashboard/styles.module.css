@@ -1,0 +1,15 @@
+.dashboard {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search {
+    width: 100%;
+}

@@ -1,0 +1,71 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead tr {
+    background-color: #ffffff;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+tbody tr {
+    background-color: #ffffff;
+}
+
+tbody tr:nth-child(even) {
+    /* background-color: #f1f1f1; */
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+
+
+.table-container {
+    max-width: 100%;
+    /* Limits the table width to the container's width */
+    max-height: 100%;
+    /* Limits the table height to a fixed size */
+    overflow: auto;
+    /* Enables both horizontal and vertical scrolling */
+    border: 1px solid #ddd;
+    /* Adds a border around the table */
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.data-table th {
+    background-color: #f2f2f2;
+    position: sticky;
+    /* Makes the header sticky */
+    top: 0;
+    /* Sticks the header to the top when scrolling vertically */
+    z-index: 1;
+    /* Ensures the header is above the content when scrolling */
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.data-table tbody tr:hover {
+    background-color: #f1f1f1;
+}

@@ -1,0 +1,39 @@
+/* .user-input-form {
+    display: flex;
+    padding: 20px;
+}
+
+.input-field {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.send-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+} */
+
+.user-input-form {
+    display: flex;
+    padding: 20px;
+}
+
+.input-field {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.send-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

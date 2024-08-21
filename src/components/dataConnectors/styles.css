@@ -1,0 +1,25 @@
+.data-connectors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.data-connector-button {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border: none;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    text-align: center;
+    padding: 10px;
+}
+
+.data-connector-button:hover {
+    transform: scale(1.1);
+}

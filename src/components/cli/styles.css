@@ -1,0 +1,36 @@
+.cli-container {
+    font-family: monospace;
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.cli-output {
+    margin-bottom: 10px;
+}
+
+.cli-output-line {
+    margin-bottom: 5px;
+}
+
+.cli-input {
+    display: flex;
+}
+
+.cli-input span {
+    color: #7a7a7a;
+}
+
+.cli-input input {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-family: monospace;
+}
+
+.cli-input input:focus {
+    border-bottom: 1px solid #7a7a7a;
+}

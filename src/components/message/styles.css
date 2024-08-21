@@ -1,0 +1,26 @@
+/* .message {
+    margin: 10px;
+}
+
+.sender {
+    font-weight: bold;
+}
+
+.timestamp {
+    font-size: 12px;
+    color: #999;
+} */
+
+
+
+.message {
+    margin-bottom: 10px;
+}
+
+.user {
+    font-weight: bold;
+}
+
+.text {
+    margin-left: 5px;
+}

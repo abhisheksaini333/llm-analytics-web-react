@@ -1,0 +1,9 @@
+.workflow-panel {
+    margin-bottom: 20px;
+    height: inherit;
+    overflow-y: scroll;
+}
+
+.workflow-panel h2 {
+    margin-top: 0;
+}
