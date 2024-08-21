@@ -7,6 +7,7 @@ import Loading from '../../components/loading';
 
 import './styles.css';
 import { DataObject, parseTableData, segregateData, SegregatedData } from '../../utils/parsers';
+import TableData from '../../components/dataTable';
 
 const DataViewPage: React.FC = () => {
     const [selectedTable, setSelectedTable] = useState<{ id: number, label: string }>();
@@ -16,33 +17,6 @@ const DataViewPage: React.FC = () => {
     const [tableData, setTableData] = useState<any>([]);
     const [error, setError] = useState<string | null>(null);
     const navigate = useNavigate();
-
-
-    const items = [
-        { id: 1, label: 'Table 1' },
-        { id: 2, label: 'Table 2' },
-        { id: 3, label: 'Table 3' },
-        { id: 4, label: 'Table 4' },
-        { id: 5, label: 'Table 5' },
-        { id: 6, label: 'Table 6' },
-        { id: 7, label: 'Table 7' },
-        { id: 8, label: 'Table 8' },
-        { id: 9, label: 'Table 9' },
-        { id: 10, label: 'Table 10' },
-    ];
-
-    const data = [
-        { id: 1, name: 'John Doe', age: 28, occupation: 'Developer' },
-        { id: 2, name: 'Jane Smith', age: 34, occupation: 'Designer' },
-        { id: 3, name: 'Sam Johnson', age: 45, occupation: 'Manager' },
-    ];
-
-    const columns = [
-        { header: 'ID', key: 'id' },
-        { header: 'Name', key: 'name' },
-        { header: 'Age', key: 'age' },
-        { header: 'Occupation', key: 'occupation' },
-    ];
 
     // useEffect(() => {
     //     const fetchTables = async () => {
@@ -75,10 +49,7 @@ const DataViewPage: React.FC = () => {
                     "natural_language_query": "show me all the data"
                 };
                 const response: any = await get('https://magicbi-g6lg7lulsq-uc.a.run.app/run-queries/');
-                debugger
-                // console.log('Table List response:', response);
                 let tableData: DataObject[] = response?.query2_results;
-                // let { columns, data } = parseTableData(tableData);
                 const { columns, data: dataCollection }: SegregatedData = segregateData(tableData);
 
                 setTableData(tableData);
@@ -158,7 +129,8 @@ const DataViewPage: React.FC = () => {
                                 </div>
                                 {
                                     tableData && tableDataColumns &&
-                                    <DataTable data={tableData} columns={tableDataColumns} />
+                                    // <DataTable data={tableData} columns={tableDataColumns} />
+                                    <TableData data={tableData} />
                                 }
                             </>
                         }

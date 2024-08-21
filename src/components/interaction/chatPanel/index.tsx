@@ -43,6 +43,7 @@ interface ChatPanelProps {
 const ChatPanel: React.FC<ChatPanelProps> = ({ onQuerySend, handleQueryResponse, loading }) => {
     const [messages, setMessages] = useState<{ text: string, sender: string }[]>([]);
     const [input, setInput] = useState<string>('');
+    const [isExpect, setIsExpect] = useState<boolean>(false);
     const [suggestedQueries, setSuggestedQueries] = useState<string[]>([
         "Show me income by marital status ?",
         "What's the total sales for last 30 days?",
@@ -52,13 +53,17 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ onQuerySend, handleQueryResponse,
     const chatDisplayRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        setMessages(prevMessages => [...prevMessages, { text: 'This is a bot response.', sender: 'bot' }]);
+        if (isExpect) {
+            setMessages(prevMessages => [...prevMessages, { text: 'This is a bot response.', sender: 'bot' }]);
+            setIsExpect(false);
+        }
     }, [handleQueryResponse]);
 
 
     const handleSend = () => {
         if (input.trim() === '') return;
         onQuerySend(input);
+        setIsExpect(true);
 
         // Add user message
         setMessages([...messages, { text: input, sender: 'user' }]);

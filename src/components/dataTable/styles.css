@@ -31,13 +31,9 @@ tbody tr:hover {
 
 .table-container {
     max-width: 100%;
-    /* Limits the table width to the container's width */
     max-height: 100%;
-    /* Limits the table height to a fixed size */
     overflow: auto;
-    /* Enables both horizontal and vertical scrolling */
     border: 1px solid #ddd;
-    /* Adds a border around the table */
 }
 
 .data-table {
@@ -55,11 +51,8 @@ tbody tr:hover {
 .data-table th {
     background-color: #f2f2f2;
     position: sticky;
-    /* Makes the header sticky */
     top: 0;
-    /* Sticks the header to the top when scrolling vertically */
     z-index: 1;
-    /* Ensures the header is above the content when scrolling */
 }
 
 .data-table tbody tr:nth-child(even) {

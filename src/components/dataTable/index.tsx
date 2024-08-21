@@ -1,59 +1,41 @@
 import React from 'react';
-import './styles.css'
-
-// interface DataTableProps {
-//     data: Array<{ [key: string]: any }>;
-//     columns: Array<{ header: string, key: string }>;
-// }
-
-// const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
-//     return (
-//         <table>
-//             <thead>
-//                 <tr>
-//                     {columns.map((column) => (
-//                         <th key={column.key}>{column.header}</th>
-//                     ))}
-//                 </tr>
-//             </thead>
-//             <tbody>
-//                 {data.map((row, rowIndex) => (
-//                     <tr key={rowIndex}>
-//                         {columns.map((column) => (
-//                             <td key={column.key}>{row[column.key]}</td>
-//                         ))}
-//                     </tr>
-//                 ))}
-//             </tbody>
-//         </table>
-//     );
-// };
-
-// export default DataTable;
+import './styles.css';
 
 
-interface TableDataProps {
-    columns: string[];
-    data: string[][];
+interface DataObject {
+    [key: string]: any;
 }
 
-const TableData: React.FC<TableDataProps> = ({ columns, data }) => {
-    debugger
+interface TableDataProps {
+    data: DataObject[];
+}
+
+const TableData: React.FC<TableDataProps> = ({ data }) => {
+    if (data.length === 0) {
+        return <p>No data available.</p>;
+    }
+
+    const columns = Object.keys(data[0]);
+
     return (
-        <div className="table-container">
-            <table className="data-table">
-                <thead>
+        <div style={{ overflowX: 'auto', overflowY: 'auto' }}>
+            <table style={{ borderCollapse: 'collapse', width: '100%', minWidth: '800px' }}>
+                <thead style={{ position: 'sticky', top: 0, backgroundColor: '#fff', zIndex: 1 }}>
                     <tr>
                         {columns.map((column, index) => (
-                            <th key={index}>{column}</th>
+                            <th key={index} style={{ border: '1px solid #ddd', padding: '8px', textAlign: 'left' }}>
+                                {column}
+                            </th>
                         ))}
                     </tr>
                 </thead>
                 <tbody>
                     {data.map((row, rowIndex) => (
                         <tr key={rowIndex}>
-                            {row.map((cell, cellIndex) => (
-                                <td key={cellIndex}>{cell}</td>
+                            {columns.map((column, colIndex) => (
+                                <td key={colIndex} style={{ border: '1px solid #ddd', padding: '8px' }}>
+                                    {row[column]}
+                                </td>
                             ))}
                         </tr>
                     ))}
@@ -64,37 +46,3 @@ const TableData: React.FC<TableDataProps> = ({ columns, data }) => {
 };
 
 export default TableData;
-
-
-// interface TableDataProps {
-//     columns: string[];
-//     data: Record<string, any[]>;
-// }
-
-// const TableData: React.FC<TableDataProps> = ({ columns, data }) => {
-//     debugger
-//     return (
-//         <div className="table-container">
-//             <table className="data-table">
-//                 <thead>
-//                     <tr>
-//                         {columns.map((column, index) => (
-//                             <th key={index}>{column}</th>
-//                         ))}
-//                     </tr>
-//                 </thead>
-//                 <tbody>
-//                     {data[columns[0]] && data[columns[0]].map((_, rowIndex) => (
-//                         <tr key={rowIndex}>
-//                             {columns.map((column) => (
-//                                 <td key={column}>{data[column][rowIndex]}</td>
-//                             ))}
-//                         </tr>
-//                     ))}
-//                 </tbody>
-//             </table>
-//         </div>
-//     );
-// };
-
-// export default TableData;
