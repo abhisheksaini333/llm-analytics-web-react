@@ -37,3 +37,21 @@
         transform: translateX(0);
     }
 }
+
+.agent {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.description {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.attributes {
+
+}
+
+.attribute {
+    
+}

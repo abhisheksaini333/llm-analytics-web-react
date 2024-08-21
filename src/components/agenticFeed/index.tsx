@@ -11,9 +11,39 @@ const AgenticFeed: React.FC<AgenticFeedProps> = ({ queryResponse, loading }) => 
     const [items, setItems] = useState<any[]>([]);
     const [animatedItems, setAnimatedItems] = useState<any[]>([]);
 
+    const mockSteps = [
+        {
+            agent: 'Intent Agent',
+            description: 'Understanding the question'
+        },
+        {
+            agent: 'Context Agent',
+            description: 'Gathering the right context'
+        },
+        {
+            agent: 'Planning Agent',
+            description: 'Creating the execution plan'
+        },
+        {
+            agent: 'Query Agent',
+            description: 'Query the right tables and columns',
+            attributes: []
+        },
+        {
+            agent: 'Insight Agent',
+            description: 'Present the story'
+        },
+        {
+            agent: 'Action Agent',
+            description: 'Recommend actions'
+        }
+    ]
+
     useEffect(() => {
         if (queryResponse?.steps) {
-            setItems(queryResponse.steps);
+            mockSteps[3].attributes = queryResponse?.selected_attributes;
+            // setItems(queryResponse.steps);
+            setItems(mockSteps);
         }
     }, [queryResponse]);
 
@@ -25,7 +55,7 @@ const AgenticFeed: React.FC<AgenticFeedProps> = ({ queryResponse, loading }) => 
                 if (prevItems.length >= items.length) return prevItems;
                 return [...prevItems, items[prevItems.length]];
             });
-        }, 2000);
+        }, 1500);
 
         return () => clearInterval(interval);
     }, [items]);
@@ -54,10 +84,19 @@ const AgenticFeed: React.FC<AgenticFeedProps> = ({ queryResponse, loading }) => 
                     <div
                         key={index}
                         className={`feed-item ${index < animatedItems.length ? 'slide-in' : ''}`}
-                        // className={`feed-item ${newItem === item ? 'slide-in' : ''}`}
                     >
-                        <div>Agent: {item?.agent}</div>
-                        <div>Instruction: {item?.instruction}</div>
+                        <div className='agent'>{item?.agent}</div>
+                        <div className='description'>{item?.description}</div>
+                        {
+                            item?.attributes && item?.attributes.length > 0 &&
+                            <div className='attributes'>
+                                {
+                                    item?.attributes.map((i: any, ind: number) => {
+                                        <div key={ind} className='attribute'>{ind + 1}. {i}</div>
+                                    })
+                                }
+                            </div>
+                        }
                     </div>
                 ))}
             </div>

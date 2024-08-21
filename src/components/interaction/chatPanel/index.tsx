@@ -35,7 +35,7 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ onQuerySend, queryResponse, loadi
             setTimeout(() => {
                 setMessages(prevMessages => [...prevMessages, { text: 'This is a bot response.', sender: 'bot', type: 'table', tableData: queryResponse?.table_data }]);
                 setIsExpect(false);
-            }, 7000);
+            }, 9500);
         }
     }, [queryResponse]);
 
