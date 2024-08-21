@@ -92,13 +92,13 @@
 .suggested-queries {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 5px;
     margin-bottom: 10px;
     font-size: 10px;
 }
 
 .query-card {
-    padding: 6px;
+    padding: 4px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f0f0f0;

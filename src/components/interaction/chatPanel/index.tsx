@@ -23,9 +23,16 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ onQuerySend, queryResponse, loadi
     const [input, setInput] = useState<string>('');
     const [isExpect, setIsExpect] = useState<boolean>(false);
     const [suggestedQueries, setSuggestedQueries] = useState<string[]>([
-        "Show me income by marital status ?",
-        "What's the total sales for last 30 days?",
-        "Tell me the profit vs cost.",
+        "What's the revenue earned by marital status?",
+        "Customers with high web purchases but low catalog purchases?",
+        "Which age group spends the most on wine?",
+        "list of customers that have not accepted any campaign but have filed a complaint?",
+        "Average income of customers who have accepted at least one campaign?",
+        "Revenue from customers who have children compared to those who don’t?",
+        "Show me total purchases by education levels",
+        "Average recency of customers who have high engagement with the website?",
+        "Customers that have accepted Campaign 1 but not Campaign 5, and what is their average income?",
+        "What is the correlation between the number of web visits and the total amount spent on sweet products?"
     ]);
     const sendButtonRef = useRef<HTMLButtonElement>(null);
     const chatDisplayRef = useRef<HTMLDivElement>(null);

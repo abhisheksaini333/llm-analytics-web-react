@@ -14,7 +14,8 @@ const AgenticFeed: React.FC<AgenticFeedProps> = ({ queryResponse, loading }) => 
     const mockSteps = [
         {
             agent: 'Intent Agent',
-            description: 'Understanding the question'
+            description: 'Understanding the question',
+            attributes: []
         },
         {
             agent: 'Context Agent',
@@ -28,17 +29,17 @@ const AgenticFeed: React.FC<AgenticFeedProps> = ({ queryResponse, loading }) => 
         },
         {
             agent: 'Query Agent',
-            description: 'Query the right tables and columns',
+            description: 'Querying the right tables and columns',
             attributes: []
         },
         {
             agent: 'Insight Agent',
-            description: 'Present the story',
+            description: 'Presenting the story',
             attributes: []
         },
         {
             agent: 'Action Agent',
-            description: 'Recommend actions',
+            description: 'Recommending actions',
             attributes: []
         }
     ]
