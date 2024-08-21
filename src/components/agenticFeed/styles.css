@@ -49,9 +49,15 @@
 }
 
 .attributes {
-
+    font-size: 12px;
+    word-wrap: break-word;
+    font-family: monospace;
+    background: #ffffff;
+    padding: 3px 10px;
+    margin-top: 10px;
 }
 
 .attribute {
-    
+    line-break: anywhere;
+    margin-top: 8px;
 }

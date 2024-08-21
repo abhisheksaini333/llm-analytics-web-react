@@ -18,11 +18,13 @@ const AgenticFeed: React.FC<AgenticFeedProps> = ({ queryResponse, loading }) => 
         },
         {
             agent: 'Context Agent',
-            description: 'Gathering the right context'
+            description: 'Gathering the right context',
+            attributes: []
         },
         {
             agent: 'Planning Agent',
-            description: 'Creating the execution plan'
+            description: 'Creating the execution plan',
+            attributes: []
         },
         {
             agent: 'Query Agent',
@@ -31,11 +33,13 @@ const AgenticFeed: React.FC<AgenticFeedProps> = ({ queryResponse, loading }) => 
         },
         {
             agent: 'Insight Agent',
-            description: 'Present the story'
+            description: 'Present the story',
+            attributes: []
         },
         {
             agent: 'Action Agent',
-            description: 'Recommend actions'
+            description: 'Recommend actions',
+            attributes: []
         }
     ]
 
@@ -91,8 +95,8 @@ const AgenticFeed: React.FC<AgenticFeedProps> = ({ queryResponse, loading }) => 
                             item?.attributes && item?.attributes.length > 0 &&
                             <div className='attributes'>
                                 {
-                                    item?.attributes.map((i: any, ind: number) => {
-                                        <div key={ind} className='attribute'>{ind + 1}. {i}</div>
+                                    item.attributes.map((i: string, ind: number) => {
+                                        return <div key={`inner` + ind} className='attribute'>{ind + 1}. {i}</div>
                                     })
                                 }
                             </div>
