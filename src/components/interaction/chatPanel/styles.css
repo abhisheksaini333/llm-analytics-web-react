@@ -132,3 +132,8 @@
 }
 
 .user-icon {}
+
+.wait-mode {
+    display: flex;
+    gap: 5px;
+}

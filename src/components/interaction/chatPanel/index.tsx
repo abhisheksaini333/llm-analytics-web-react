@@ -7,6 +7,7 @@ import TableData from '../../dataTable';
 import ChatTable from '../../chatTable';
 import { BotIcon, UserIcon } from './icons/chatAvatar';
 import magicBI from '../../../assets/icons/MagicBI.jpg';
+import BarChart from '../../charts/vega';
 
 const spec = {
     "width": 400,
@@ -135,16 +136,26 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ onQuerySend, queryResponse, loadi
                             }
                             {
                                 msg.type === 'table' &&
-                                <div className='chat-table'>
-                                    <ChatTable data={msg.tableData} />
-                                </div>
+                                <>
+                                    <div className='chat-table'>
+                                        <ChatTable data={msg.tableData} />
+                                    </div>
+                                    <br />
+                                    <BarChart data={msg.tableData} />
+                                </>
                             }
                         </div>
                     ))}
                     {
                         loading && isExpect &&
-                        <div className='wait-cursor'>
-                            <DancingEllipses />
+                        <div className='wait-mode'>
+                            <div className='bot-icon'>
+                                {/* <BotIcon /> */}
+                                <img src={magicBI} alt='bot' />
+                            </div>
+                            <div className='wait-cursor'>
+                                <DancingEllipses />
+                            </div>
                         </div>
                     }
                     <div className="chat-message bot">
