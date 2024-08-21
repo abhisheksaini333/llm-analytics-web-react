@@ -2,6 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { VegaLite } from 'react-vega';
 import './styles.css';
 import DancingEllipses from '../../dancingEllipses';
+import { parseTableData } from '../../../utils/parsers';
+import TableData from '../../dataTable';
+import ChatTable from '../../chatTable';
+import { BotIcon, UserIcon } from './icons/chatAvatar';
+import magicBI from '../../../assets/icons/MagicBI.jpg';
 
 const spec = {
     "width": 400,
@@ -35,13 +40,13 @@ const barData = {
 
 interface ChatPanelProps {
     onQuerySend: (query: string) => void;
-    handleQueryResponse: any;
+    queryResponse: any;
     loading: boolean;
 }
 
 
-const ChatPanel: React.FC<ChatPanelProps> = ({ onQuerySend, handleQueryResponse, loading }) => {
-    const [messages, setMessages] = useState<{ text: string, sender: string }[]>([]);
+const ChatPanel: React.FC<ChatPanelProps> = ({ onQuerySend, queryResponse, loading }) => {
+    const [messages, setMessages] = useState<{ text: string, sender: string, type?: string, tableData?: any }[]>([]);
     const [input, setInput] = useState<string>('');
     const [isExpect, setIsExpect] = useState<boolean>(false);
     const [suggestedQueries, setSuggestedQueries] = useState<string[]>([
@@ -54,10 +59,10 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ onQuerySend, handleQueryResponse,
 
     useEffect(() => {
         if (isExpect) {
-            setMessages(prevMessages => [...prevMessages, { text: 'This is a bot response.', sender: 'bot' }]);
+            setMessages(prevMessages => [...prevMessages, { text: 'This is a bot response.', sender: 'bot', type: 'table', tableData: queryResponse?.table_data }]);
             setIsExpect(false);
         }
-    }, [handleQueryResponse]);
+    }, [queryResponse]);
 
 
     const handleSend = () => {
@@ -109,13 +114,35 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ onQuerySend, handleQueryResponse,
                 <div className="chat-display" ref={chatDisplayRef}>
                     {messages.map((msg, index) => (
                         <div key={index} className={`chat-message ${msg.sender}`}>
-                            <div className='chat-text'>
-                                {msg.text}
-                            </div>
+                            {
+                                msg.sender === 'bot' &&
+                                <div className='bot-icon'>
+                                    {/* <BotIcon /> */}
+                                    <img src={magicBI} alt='bot' />
+                                </div>
+                            }
+                            {
+                                msg.sender === 'user' &&
+                                <div className='user-icon'>
+                                    <UserIcon />
+                                </div>
+                            }
+                            {
+                                msg.type !== 'table' &&
+                                <div className='chat-text'>
+                                    {msg.text}
+                                </div>
+                            }
+                            {
+                                msg.type === 'table' &&
+                                <div className='chat-table'>
+                                    <ChatTable data={msg.tableData} />
+                                </div>
+                            }
                         </div>
                     ))}
                     {
-                        loading &&
+                        loading && isExpect &&
                         <div className='wait-cursor'>
                             <DancingEllipses />
                         </div>
@@ -142,7 +169,7 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ onQuerySend, handleQueryResponse,
                     <button ref={sendButtonRef} onClick={handleSend} className="send-button">Send</button>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 

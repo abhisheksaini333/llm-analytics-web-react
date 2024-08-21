@@ -42,10 +42,10 @@ const PlaygroundPage: React.FC = () => {
                     <HistoryPanel />
                 </div> */}
                 <div className="center-panel">
-                    <ChatPanel onQuerySend={runQuery} handleQueryResponse={queryResponse} loading={loading}/>
+                    <ChatPanel onQuerySend={runQuery} queryResponse={queryResponse} loading={loading}/>
                 </div>
                 <div className="right-panel">
-                    <WorkflowPanel handleQueryResponse={queryResponse} />
+                    <WorkflowPanel queryResponse={queryResponse} />
                 </div>
             </div>
         </div>

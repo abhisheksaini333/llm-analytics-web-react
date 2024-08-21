@@ -3,11 +3,11 @@ import AgenticFeed from '../../agenticFeed';
 import './styles.css';
 
 interface WorkflowPanelProps {
-    handleQueryResponse: any;
+    queryResponse: any;
 }
 
 
-const WorkflowPanel: React.FC<WorkflowPanelProps> = ({ handleQueryResponse }) => {
+const WorkflowPanel: React.FC<WorkflowPanelProps> = ({ queryResponse }) => {
     // Dummy data for workflow feed
     const workflowFeed = [
         "Agent action 1",

@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    max-height: calc(100vh - 240px);
+    max-height: calc(100vh - 120px);
 }
 
 .chat-display {
@@ -33,10 +33,15 @@
     text-align: right;
     display: flex;
     flex-direction: row-reverse;
+    gap: 5px;
+    align-items: center;
 }
 
 .chat-message.bot {
     text-align: left;
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
 }
 
 .chat-text {
@@ -119,3 +124,11 @@
         transform: translateX(0);
     }
 }
+
+.bot-icon img {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+}
+
+.user-icon {}

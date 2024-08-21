@@ -33,7 +33,7 @@ const TableData: React.FC<TableDataProps> = ({ data }) => {
                     {data.map((row, rowIndex) => (
                         <tr key={rowIndex}>
                             {columns.map((column, colIndex) => (
-                                <td key={colIndex} style={{ border: '1px solid #ddd', padding: '8px' }}>
+                                <td key={colIndex} style={{ border: '1px solid #ddd', padding: '6px', fontSize: '14px' }}>
                                     {row[column]}
                                 </td>
                             ))}
