@@ -19,11 +19,11 @@ const BarChart: React.FC<ChartProps> = ({ data }) => {
             });
             return result;
         });
-        return data;
+        return { columns, data };
     }
 
     const parsedData = parseGenericData(data);
-    const vegaSpec = generateVegaSpec(parsedData, 'Marital_Status', 'Income', 'bar');
+    const vegaSpec = generateVegaSpec(parsedData.data, parsedData.columns[0], parsedData.columns[1], 'bar');
 
     return (
         <div>

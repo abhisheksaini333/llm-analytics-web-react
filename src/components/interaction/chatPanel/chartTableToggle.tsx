@@ -13,7 +13,7 @@ export const TableChartToggle: React.FC<TableChartToggleProps> = ({ data }) => {
     const [showChart, setShowChart] = useState(false);
 
     return (
-        <div style={{ position: 'relative', padding: '16px' }}>
+        <div style={{ position: 'relative', padding: '16px', paddingTop: '0' }}>
             <div style={{ position: 'absolute', top: '10px', right: '-18px' }}>
                 <button
                     onClick={() => setShowChart(!showChart)}
@@ -22,6 +22,7 @@ export const TableChartToggle: React.FC<TableChartToggleProps> = ({ data }) => {
                         border: 'none',
                         cursor: 'pointer',
                         padding: '8px',
+                        paddingTop: '4px'
                     }}
                     title={showChart ? 'Show Table' : 'Show Chart'}
                 >
