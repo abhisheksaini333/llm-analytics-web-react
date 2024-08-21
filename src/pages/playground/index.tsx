@@ -45,7 +45,7 @@ const PlaygroundPage: React.FC = () => {
                     <ChatPanel onQuerySend={runQuery} queryResponse={queryResponse} loading={loading}/>
                 </div>
                 <div className="right-panel">
-                    <WorkflowPanel queryResponse={queryResponse} />
+                    <WorkflowPanel queryResponse={queryResponse} loading={loading}/>
                 </div>
             </div>
         </div>

@@ -10,35 +10,6 @@ import magicBI from '../../../assets/icons/MagicBI.jpg';
 import BarChart from '../../charts/vega';
 import { TableChartToggle } from './chartTableToggle';
 
-const spec = {
-    "width": 400,
-    "height": 200,
-    "data": [{ "name": "table" }],
-    "signals": [
-        {
-            "name": "tooltip",
-            "value": {},
-            "on": [
-                { "events": "rect:mouseover", "update": "datum" },
-                { "events": "rect:mouseout", "update": "{}" }
-            ]
-        }
-    ],
-}
-
-const barData = {
-    table: [
-        { a: 'A', b: 28 },
-        { a: 'B', b: 55 },
-        { a: 'C', b: 43 },
-        { a: 'D', b: 91 },
-        { a: 'E', b: 81 },
-        { a: 'F', b: 53 },
-        { a: 'G', b: 19 },
-        { a: 'H', b: 87 },
-        { a: 'I', b: 52 },
-    ],
-}
 
 interface ChatPanelProps {
     onQuerySend: (query: string) => void;
@@ -61,8 +32,10 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ onQuerySend, queryResponse, loadi
 
     useEffect(() => {
         if (isExpect) {
-            setMessages(prevMessages => [...prevMessages, { text: 'This is a bot response.', sender: 'bot', type: 'table', tableData: queryResponse?.table_data }]);
-            setIsExpect(false);
+            setTimeout(() => {
+                setMessages(prevMessages => [...prevMessages, { text: 'This is a bot response.', sender: 'bot', type: 'table', tableData: queryResponse?.table_data }]);
+                setIsExpect(false);
+            }, 7000);
         }
     }, [queryResponse]);
 
@@ -72,13 +45,10 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ onQuerySend, queryResponse, loadi
         onQuerySend(input);
         setIsExpect(true);
 
-        // Add user message
         setMessages([...messages, { text: input, sender: 'user' }]);
         setInput('');
 
-        // Simulate bot response
         setTimeout(() => {
-            // setMessages(prevMessages => [...prevMessages, { text: 'This is a bot response.', sender: 'bot' }]);
             scrollToBottom();
         }, 0);
     };
@@ -119,7 +89,6 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ onQuerySend, queryResponse, loadi
                             {
                                 msg.sender === 'bot' &&
                                 <div className='bot-icon'>
-                                    {/* <BotIcon /> */}
                                     <img src={magicBI} alt='bot' />
                                 </div>
                             }
@@ -144,10 +113,9 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ onQuerySend, queryResponse, loadi
                         </div>
                     ))}
                     {
-                        loading && isExpect &&
+                        isExpect &&
                         <div className='wait-mode'>
                             <div className='bot-icon'>
-                                {/* <BotIcon /> */}
                                 <img src={magicBI} alt='bot' />
                             </div>
                             <div className='wait-cursor'>
@@ -155,10 +123,6 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ onQuerySend, queryResponse, loadi
                             </div>
                         </div>
                     }
-                    <div className="chat-message bot">
-                        {/* <VegaLite spec={spec} data={barData} /> */}
-
-                    </div>
                 </div>
                 <div className="suggested-queries">
                     {suggestedQueries.map((query, index) => (

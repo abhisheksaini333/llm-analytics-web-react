@@ -3,22 +3,17 @@ import AgenticFeed from '../../agenticFeed';
 import './styles.css';
 
 interface WorkflowPanelProps {
-    queryResponse: any;
+    queryResponse?: any;
+    loading: boolean;
 }
 
 
-const WorkflowPanel: React.FC<WorkflowPanelProps> = ({ queryResponse }) => {
-    // Dummy data for workflow feed
-    const workflowFeed = [
-        "Agent action 1",
-        "Agent action 2",
-        // Add more actions
-    ];
+const WorkflowPanel: React.FC<WorkflowPanelProps> = ({ queryResponse, loading }) => {
 
     return (
         <div className="workflow-panel">
-            <h2>Agent Feed</h2>
-            <AgenticFeed />
+            <h4>Data Agents</h4>
+            <AgenticFeed queryResponse={queryResponse} loading={loading}/>
             {/* <ul>
                 {workflowFeed.map((action, index) => (
                     <li key={index}>{action}</li>

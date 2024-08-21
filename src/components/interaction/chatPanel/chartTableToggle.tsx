@@ -14,7 +14,7 @@ export const TableChartToggle: React.FC<TableChartToggleProps> = ({ data }) => {
 
     return (
         <div style={{ position: 'relative', padding: '16px', paddingTop: '0' }}>
-            <div style={{ position: 'absolute', top: '10px', right: '-18px' }}>
+            <div style={{ position: 'absolute', top: '0px', right: '-18px' }}>
                 <button
                     onClick={() => setShowChart(!showChart)}
                     style={{

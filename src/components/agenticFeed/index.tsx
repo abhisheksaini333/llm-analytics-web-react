@@ -1,16 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import './styles.css';
 
-const AgenticFeed: React.FC = () => {
-    const [items, setItems] = useState<string[]>([]);
+interface AgenticFeedProps {
+    queryResponse: any;
+    loading: boolean;
+}
+
+const AgenticFeed: React.FC<AgenticFeedProps> = ({ queryResponse, loading }) => {
     const [newItem, setNewItem] = useState<string | null>(null);
+    const [items, setItems] = useState<any[]>([]);
+    const [animatedItems, setAnimatedItems] = useState<any[]>([]);
 
     useEffect(() => {
+        if (queryResponse?.steps) {
+            setItems(queryResponse.steps);
+        }
+    }, [queryResponse]);
+
+    useEffect(() => {
+        if (items.length === 0) return;
+
         const interval = setInterval(() => {
-            const newItem = `New Feed ${items.length + 1}`;
-            setItems((prevItems) => [newItem, ...prevItems]);
-            setNewItem(newItem);
-        }, 3000);
+            setAnimatedItems((prevItems) => {
+                if (prevItems.length >= items.length) return prevItems;
+                return [...prevItems, items[prevItems.length]];
+            });
+        }, 2000);
 
         return () => clearInterval(interval);
     }, [items]);
@@ -25,15 +40,24 @@ const AgenticFeed: React.FC = () => {
         }
     }, [newItem]);
 
+    if (loading) {
+        setTimeout(() => {
+            setAnimatedItems([]);
+        }, 0);
+        return <></>;
+    }
+
     return (
         <div className="agentic-feed">
             <div className="feed-items">
-                {items.map((item, index) => (
+                {animatedItems.map((item, index) => (
                     <div
                         key={index}
-                        className={`feed-item ${newItem === item ? 'slide-in' : ''}`}
+                        className={`feed-item ${index < animatedItems.length ? 'slide-in' : ''}`}
+                        // className={`feed-item ${newItem === item ? 'slide-in' : ''}`}
                     >
-                        {item}
+                        <div>Agent: {item?.agent}</div>
+                        <div>Instruction: {item?.instruction}</div>
                     </div>
                 ))}
             </div>
