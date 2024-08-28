@@ -22,7 +22,7 @@ const CsvUploader: React.FC<CsvUploaderProps> = ({ apiEndpoint, onSubmit }) => {
 
     return (
         <div>
-            <h3>CSV Upload</h3>
+            <h3>Connect to the csv file you'd like to analyze</h3>
             <br />
             <FileUpload
                 uploadUrl={apiEndpoint}

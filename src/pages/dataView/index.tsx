@@ -125,7 +125,7 @@ const DataViewPage: React.FC = () => {
                             <>
                                 <div className='tableDataHeader'>
                                     {/* <h3>{selectedTable.label}</h3> */}
-                                    <button className='interact-button' onClick={onInteractClick}>Interact</button>
+                                    <button className='interact-button' onClick={onInteractClick}>Insights</button>
                                 </div>
                                 {
                                     tableData && tableDataColumns &&

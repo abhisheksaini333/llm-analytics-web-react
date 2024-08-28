@@ -12,7 +12,7 @@ const WorkflowPanel: React.FC<WorkflowPanelProps> = ({ queryResponse, loading })
 
     return (
         <div className="workflow-panel">
-            <h4>Data Agents</h4>
+            <h4>Data AI Agents</h4>
             <AgenticFeed queryResponse={queryResponse} loading={loading} />
         </div>
     );

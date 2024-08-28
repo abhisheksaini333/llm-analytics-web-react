@@ -40,7 +40,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ uploadUrl, onUploadSuccess, onU
             <br />
             <br />
             <button onClick={handleUpload} disabled={isUploading}>
-                {isUploading ? 'Uploading...' : 'Upload'}
+                {isUploading ? 'Connecting...' : 'Connect'}
             </button>
         </div>
     );

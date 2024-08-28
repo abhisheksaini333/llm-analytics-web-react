@@ -40,9 +40,9 @@ const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
 
     const navItems = [
         // { label: "Home", path: "/" },
-        { label: "Connect", path: "/connect" },
-        { label: "Data", path: "/data" },
-        { label: "Interact", path: "/interact" },
+        { label: "Data", path: "/connect" },
+        { label: "Knowledge", path: "/data" },
+        { label: "Insights", path: "/interact" },
         // { label: "Stories", path: "/stories" },
     ];
 

@@ -59,7 +59,7 @@ const UserInput: React.FC = () => {
                 placeholder="Type a message..."
                 className="input-field"
             />
-            <button type="submit" className="send-button">Send</button>
+            <button type="submit" className="send-button">Ask</button>
         </form>
     );
 }

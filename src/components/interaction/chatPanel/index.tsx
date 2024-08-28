@@ -145,7 +145,7 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ onQuerySend, queryResponse, loadi
                         onKeyPress={handleKeyPress}
                         placeholder="Ask a question..."
                     />
-                    <button ref={sendButtonRef} onClick={handleSend} className="send-button">Send</button>
+                    <button ref={sendButtonRef} onClick={handleSend} className="send-button">Ask</button>
                 </div>
             </div>
         </div >
