@@ -5,6 +5,7 @@ interface DataConnector {
     id: string;
     name: string;
     color: string;
+    img: any;
 }
 
 interface DataConnectorsProps {
@@ -22,6 +23,7 @@ const DataConnectors: React.FC<DataConnectorsProps> = ({ connectors, onConnector
                     style={{ backgroundColor: connector.color }}
                     onClick={() => onConnectorClick(connector.id)}
                 >
+                    <img src={connector.img} alt='data-con' />
                     {connector.name}
                 </button>
             ))}

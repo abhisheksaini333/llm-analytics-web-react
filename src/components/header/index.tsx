@@ -43,6 +43,7 @@ const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
         { label: "Data", path: "/connect" },
         { label: "Knowledge", path: "/data" },
         { label: "Insights", path: "/interact" },
+        { label: "Canvas", path: "/canvas" },
         // { label: "Stories", path: "/stories" },
     ];
 

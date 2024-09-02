@@ -1,5 +1,5 @@
 import React from 'react';
-import Dashboard from '../../components/dashboard';
+import Canvas from '../../components/canvas';
 
 import './styles.css';
 
@@ -7,9 +7,9 @@ const DashboardPage: React.FC = () => {
 
     return (
         <div>
-            <h1>Dashboard</h1>
+            {/* <h1>Dashboard</h1> */}
             <div className='dashboard'>
-                <Dashboard />
+                {/* <Canvas /> */}
             </div>
         </div>
     );

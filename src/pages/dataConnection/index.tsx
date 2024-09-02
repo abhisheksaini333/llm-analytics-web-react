@@ -6,6 +6,8 @@ import Loading from '../../components/loading';
 import DataConnectors from '../../components/dataConnectors';
 import CsvUploader from '../../components/connectors/csvUpload';
 
+import csv from '../../assets/dataIcons/csv.jpg'
+
 const DataConnectorsPage: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const [selectedConnector, setSelectedConnector] = useState<string>('');
@@ -14,27 +16,27 @@ const DataConnectorsPage: React.FC = () => {
 
 
     const dataConnectors = [
-        { id: '1', name: 'CSV', color: '#4CAF50' },
-        { id: '2', name: 'JSON', color: '#F5A623' },
-        { id: '3', name: 'XML', color: '#1E90FF' },
-        { id: '4', name: 'Excel (XLSX)', color: '#217346' },
-        { id: '5', name: 'Microsoft SQL Server', color: '#CC2927' },
-        { id: '6', name: 'MongoDB', color: '#4DB33D' },
-        { id: '7', name: 'Amazon S3', color: '#FF9900' },
-        { id: '8', name: 'Google Cloud Storage', color: '#4285F4' },
-        { id: '9', name: 'Azure Blob Storage', color: '#0072C6' },
-        { id: '10', name: 'Apache Hadoop', color: '#FFDC00' },
-        { id: '11', name: 'Apache Hive', color: '#F6BE00' },
-        { id: '12', name: 'Apache Spark', color: '#E25A1C' },
-        { id: '13', name: 'MySQL', color: '#00758F' },
-        { id: '14', name: 'PostgreSQL', color: '#336791' },
-        { id: '15', name: 'SQLite', color: '#003B57' },
-        { id: '16', name: 'Oracle Database', color: '#F80000' },
-        { id: '17', name: 'Salesforce', color: '#00A1E0' },
-        { id: '18', name: 'Google Analytics', color: '#F7931D' },
-        { id: '19', name: 'Facebook Ads', color: '#4267B2' },
-        { id: '20', name: 'Twitter', color: '#1DA1F2' },
-        { id: '21', name: 'Snowflake', color: '#00A1E0' },
+        { id: '1', name: 'CSV', color: '#4CAF50', img: csv },
+        { id: '2', name: 'JSON', color: '#F5A623', img: csv },
+        { id: '3', name: 'XML', color: '#1E90FF', img: csv },
+        { id: '4', name: 'Excel (XLSX)', color: '#217346', img: csv },
+        { id: '5', name: 'Microsoft SQL Server', color: '#CC2927', img: csv },
+        { id: '6', name: 'MongoDB', color: '#4DB33D', img: csv },
+        { id: '7', name: 'Amazon S3', color: '#FF9900', img: csv },
+        { id: '8', name: 'Google Cloud Storage', color: '#4285F4', img: csv },
+        { id: '9', name: 'Azure Blob Storage', color: '#0072C6', img: csv },
+        { id: '10', name: 'Apache Hadoop', color: '#FFDC00', img: csv },
+        { id: '11', name: 'Apache Hive', color: '#F6BE00', img: csv },
+        { id: '12', name: 'Apache Spark', color: '#E25A1C', img: csv },
+        { id: '13', name: 'MySQL', color: '#00758F', img: csv },
+        { id: '14', name: 'PostgreSQL', color: '#336791', img: csv },
+        { id: '15', name: 'SQLite', color: '#003B57', img: csv },
+        { id: '16', name: 'Oracle Database', color: '#F80000', img: csv },
+        { id: '17', name: 'Salesforce', color: '#00A1E0', img: csv },
+        { id: '18', name: 'Google Analytics', color: '#F7931D', img: csv },
+        { id: '19', name: 'Facebook Ads', color: '#4267B2', img: csv },
+        { id: '20', name: 'Twitter', color: '#1DA1F2', img: csv },
+        { id: '21', name: 'Snowflake', color: '#00A1E0', img: csv },
     ];
 
     const handleConnectorClick = (id: string) => {
