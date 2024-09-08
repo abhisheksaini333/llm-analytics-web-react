@@ -34,7 +34,7 @@ const App: React.FC = () => {
                 <Route path="/connect" element={<DataConnectorsPage />} />
                 <Route path="/data" element={<DataViewPage />} />
                 <Route path="/interact" element={<PlaygroundPage />} />
-                {/* <Route path="/canvas" element={<DashboardPage />} /> */}
+                <Route path="/canvas" element={<DashboardPage />} />
               </Routes>
             </main>
           </Router>

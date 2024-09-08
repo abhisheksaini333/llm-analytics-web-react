@@ -1,0 +1,36 @@
+.docEditor-layout {
+    display: flex;
+    padding-bottom: 20px;
+    gap: 20px;
+}
+
+.docEditor-sidebar {
+    background-color: #ffffff70;
+}
+
+.docEditor-sidebar .header {
+    height: unset;
+    position: unset;
+    padding: 10px 20px;
+}
+
+.docEditor-sidebar .doc-list {
+    padding: 10px 0;
+}
+
+.docEditor-sidebar .doc-item {
+    padding: 10px 20px;
+    min-width: 140px;
+    max-width: 200px;
+    text-wrap: wrap;
+    overflow-wrap: break-word;
+}
+
+.docEditor-container {
+    background-color: #ffffff70;
+    width: 100%;
+}
+
+.docEditor-container .editor-container {
+    min-height: calc(100vh - 110px);
+}

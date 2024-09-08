@@ -9,6 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
 }
 
 code {
@@ -16,9 +17,11 @@ code {
     monospace;
 }
 
-body,
+/* body, */
 .app {
-  height: inherit;
+  /* height: inherit; */
+  height: -webkit-fill-available;
+  overflow-y: auto;
 }
 
 .main-content {
