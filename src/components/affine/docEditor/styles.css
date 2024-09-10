@@ -34,3 +34,7 @@
 .docEditor-container .editor-container {
     min-height: calc(100vh - 110px);
 }
+
+.edgeless-container {
+    height: calc(100vh - 110px);
+}

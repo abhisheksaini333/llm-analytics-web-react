@@ -18,7 +18,7 @@ const TopBar: React.FC<TopBarProps> = ({ title, onToggle }) => {
         <div className="top-bar">
             <div className="top-bar-title">{title}</div>
             <button className="toggle-button" onClick={handleToggle}>
-                {isToggled ? 'Canvas' : 'Editor'}
+                {isToggled ? 'Editor' : 'Canvas'}
             </button>
         </div>
     );
